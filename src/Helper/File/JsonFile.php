@@ -17,7 +17,7 @@ class JsonFile extends File
     public function save() 
     {
         $raw_data = $this->data;
-        $this->data = json_encode($this->data, JSON_PRETTY_PRINT);
+        $this->data = json_encode($this->data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
         parent::save();
         $this->data = $raw_data;
     }
