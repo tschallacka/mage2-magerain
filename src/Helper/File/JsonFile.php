@@ -11,7 +11,7 @@ class JsonFile extends File
     public function load() 
     {
         parent::load();
-        $this->data = new Dot(json_decode($this->data));
+        $this->data = new Dot(json_decode($this->data, JSON_OBJECT_AS_ARRAY));
     }
     
     public function save() 

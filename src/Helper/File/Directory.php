@@ -107,4 +107,9 @@ class Directory
             }
         }
     }
+    
+    public function __toString() 
+    {
+        return $this->directory;    
+    }
 }
