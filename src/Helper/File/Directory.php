@@ -16,12 +16,19 @@ class Directory
         return file_exists($this->directory) && is_dir($this->directory);    
     }
     
+    /**
+     * Creates the given directory recusively, building up the entire
+     * parent structure if needed.
+     * @throws Exception if the directory aldready exists
+     * @return \Tschallacka\MageRain\Helper\File\Directory
+     */
     public function create() 
     {
         if($this->exists()) {
             throw new Exception($this->directory . ' already exists.');
         }
         self::mkdir_r($this->directory);
+        return $this;
     }
     
     public function getPath($child_path = '') 

@@ -1,6 +1,7 @@
 <?php namespace Tschallacka\MageRain\Helper\File;
 
 use Exception;
+use Tschallacka\MageRain\Helper\File\Transformer\Transformer;
 
 class File 
 {
@@ -12,6 +13,8 @@ class File
     protected $directory;
     
     protected $data;
+    
+    protected $transformers = [];
     
     public function __construct($path) 
     {
@@ -45,6 +48,11 @@ class File
         $this->writeRaw($this->data);    
     }
     
+    public function addTransformer(Transformer $transform)
+    {
+        $this->transformers[] = $transform;
+    }
+    
     /**
      * returns the data as it is stored in this file object
      * @return string
@@ -73,6 +81,9 @@ class File
         if(!$this->directory->exists()) {
             throw new Exception('Directory ' . $this->directory->getPath() . ' does not exist');
         }
+        foreach($this->transformers as $transformer) {
+            $contents = $transformer->getTransformedText($contents);
+        }
         file_put_contents($this->path, $contents);    
     }
     
@@ -82,7 +93,8 @@ class File
      */
     public function readRaw() 
     {
-        return file_get_contents($this->path);    
+        $contents = file_get_contents($this->path);
+        return $contents;
     }
     
 }
