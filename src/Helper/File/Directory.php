@@ -11,6 +11,20 @@ class Directory
         $this->directory = $directory;
     }
     
+    /**
+     * Returns the path as it's defined in VENDOR_PATH(app/etc/vendor_path.php) in a realpath format
+     * @return string full path to the vendor dir.
+     */
+    public static function getMagentoVendorDir()
+    {
+        static $dir = null;
+        // Needs to be like this because of no operation allowed in constants error
+        if(!$dir) {
+            $dir = realpath(require(VENDOR_PATH));
+        }
+        return $dir;
+    }
+    
     public function exists() 
     {
         return file_exists($this->directory) && is_dir($this->directory);    
