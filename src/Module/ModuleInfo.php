@@ -1,8 +1,8 @@
-<?php namespace Tschallacka\MageRain\Helper\Module;
+<?php namespace Tschallacka\MageRain\Module;
 
-use Magento\Framework\Module\FullModuleList;
+use Magento\Framework\Module\FullModuleList; 
 use Tschallacka\MageRain\Helper\Text\Str;
-use Tschallacka\MageRain\Helper\File\Directory;
+use Tschallacka\MageRain\File\Directory;
 
 class ModuleInfo 
 {

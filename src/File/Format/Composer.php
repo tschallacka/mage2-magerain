@@ -1,6 +1,6 @@
-<?php namespace Tschallacka\MageRain\Helper\File\Format;
+<?php namespace Tschallacka\MageRain\File\Format;
 
-use Tschallacka\MageRain\Helper\File\JsonFile;
+use Tschallacka\MageRain\File\JsonFile;
 
 class Composer extends JsonFile 
 {   

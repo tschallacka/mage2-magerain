@@ -1,7 +1,7 @@
-<?php namespace Tschallacka\MageRain\Helper\File;
+<?php namespace Tschallacka\MageRain\File;
 
 use Exception;
-use Tschallacka\MageRain\Helper\File\Transformer\Transformer;
+use Tschallacka\MageRain\File\Transformer\Transformer;
 
 class File 
 {

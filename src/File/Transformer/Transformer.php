@@ -1,4 +1,4 @@
-<?php namespace Tschallacka\MageRain\Helper\File\Transformer;
+<?php namespace Tschallacka\MageRain\File\Transformer;
 
 interface Transformer 
 {

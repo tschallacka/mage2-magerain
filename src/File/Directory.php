@@ -1,4 +1,4 @@
-<?php namespace Tschallacka\MageRain\Helper\File;
+<?php namespace Tschallacka\MageRain\File;
 
 use Exception;
 

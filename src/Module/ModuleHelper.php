@@ -1,4 +1,4 @@
-<?php namespace Tschallacka\MageRain\Helper\Module;
+<?php namespace Tschallacka\MageRain\Module;
 
 use Magento\Framework\App\ObjectManager;
 use Magento\Framework\Module\FullModuleList;
