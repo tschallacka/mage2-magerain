@@ -4,6 +4,7 @@ use Exception;
 
 class Directory 
 {
+    const BASE_PATH = BP;
     protected $directory;
     
     public function __construct($directory) 
@@ -34,7 +35,7 @@ class Directory
      * Creates the given directory recusively, building up the entire
      * parent structure if needed.
      * @throws Exception if the directory aldready exists
-     * @return \Tschallacka\MageRain\Helper\File\Directory
+     * @return \Tschallacka\MageRain\File\Directory
      */
     public function create() 
     {
@@ -52,7 +53,7 @@ class Directory
     
     /**
      * Returns the parent directory of the current directory
-     * @return \Tschallacka\MageRain\Helper\File\Directory
+     * @return \Tschallacka\MageRain\File\Directory
      */
     public function getParent() 
     {
@@ -65,7 +66,7 @@ class Directory
     /**
      * Gets a child directory. This directory may not exist.
      * @param string $name
-     * @return \Tschallacka\MageRain\Helper\File\Directory
+     * @return \Tschallacka\MageRain\File\Directory
      */
     public function getChild($name) 
     {
@@ -76,7 +77,7 @@ class Directory
     /**
      * Creates given directory in current directory
      * @param string $dirname
-     * @return \Tschallacka\MageRain\Helper\File\Directory
+     * @return \Tschallacka\MageRain\File\Directory
      */
     public function createChildDirectory($dirname) 
     {
@@ -89,7 +90,7 @@ class Directory
     
     /**
      * Returns a list of all directories as Dirctory instance and files as strings
-     * @return \Tschallacka\MageRain\Helper\File\Directory[]|string[]
+     * @return \Tschallacka\MageRain\File\Directory[]|string[]
      */
     public function getChildren() 
     {

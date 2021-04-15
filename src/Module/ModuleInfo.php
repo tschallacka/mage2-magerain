@@ -33,14 +33,15 @@ class ModuleInfo
     
     /**
      * Returns a directory instance
-     * @return \Tschallacka\MageRain\Helper\File\Directory
+     * @var $vendor_path string When null magento's default vendor dir will be used as vendor path. Otherwise the supplied path will be used.
+     * @return \Tschallacka\MageRain\File\Directory
      */
-    protected function getVendorPath()
+    protected function getVendorPath($vendor_path = null)
     {
         $author = $this->hyphen_author_name;
         $module = $this->hyphen_module_name;
         
-        $vendor_path_author = Directory::getMagentoVendorDir() . '/' . $author;
+        $vendor_path_author = (is_null($vendor_path) ? Directory::getMagentoVendorDir() : $vendor_path) . '/' . $author;
         
         $project_path_vendor = $vendor_path_author . '/' . $module;
         

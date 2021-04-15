@@ -8,7 +8,7 @@ class File
     protected $path;
     
     /**
-     * @var $directory \Tschallacka\MageRain\Helper\File\Directory
+     * @var $directory \Tschallacka\MageRain\File\Directory
      */
     protected $directory;
     
@@ -24,7 +24,7 @@ class File
     
     /**
      * Returns the parent directory of the file
-     * @return \Tschallacka\MageRain\Helper\File\Directory
+     * @return \Tschallacka\MageRain\File\Directory
      */
     public function getDirectory() 
     {
