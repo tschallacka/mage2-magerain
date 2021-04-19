@@ -1,6 +1,6 @@
 <?php namespace Tschallacka\MageRain\Module;
 
-use Magento\Framework\Module\FullModuleList; 
+use Magento\Framework\Module\ModuleListInterface;
 use Tschallacka\MageRain\Helper\Text\Str;
 use Tschallacka\MageRain\File\Directory;
 
@@ -12,9 +12,10 @@ class ModuleInfo
     protected $hyphen_author_name;
     protected $raw_name;
     
-    public function __construct($raw_name)
+    public function __construct($raw_name, ModuleListInterface $module_list)
     {
-        $helper = new ModuleHelper();
+        $this->module_list = $module_list;
+        $helper = new ModuleHelper($module_list);
         $helper->checkModuleNameValidity($raw_name);
         
         $this->raw_name = $raw_name;

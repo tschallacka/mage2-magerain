@@ -7,8 +7,14 @@ class Directory
     const BASE_PATH = BP;
     protected $directory;
     
-    public function __construct($directory) 
+    /**
+     * @param string $directory The directory path
+     */
+    public function __construct(string $directory) 
     {
+        if(substr($directory, -1) === DIRECTORY_SEPARATOR) {
+            $directory = substr($directory, 0, -1);
+        }
         $this->directory = $directory;
     }
     
@@ -48,7 +54,13 @@ class Directory
     
     public function getPath($child_path = '') 
     {
-        return $this->directory . (empty($child_path) ? '' : DIRECTORY_SEPARATOR . $child_path);    
+        return $this->directory . $this->sanitzeChildPath($child_path);    
+    }
+    
+    public function sanitzeChildPath($child_path = '')
+    {
+        return (empty($child_path) ? '' : 
+                ((substr( $child_path, 0, 1 ) == DIRECTORY_SEPARATOR)?'':DIRECTORY_SEPARATOR) . $child_path);
     }
     
     /**
@@ -70,8 +82,13 @@ class Directory
      */
     public function getChild($name) 
     {
-        $path = new Directory($this->directory . DIRECTORY_SEPARATOR . $name);
+        $path = new Directory($this->getPath($name));
         return $path;
+    }
+    
+    public function equals(Directory $dir) 
+    {
+        return $dir->directory === $this->directory;    
     }
     
     /**
