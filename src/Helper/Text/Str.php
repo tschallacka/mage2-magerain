@@ -2,7 +2,8 @@
 
 class Str 
 {
-    static $camel_cache = [];
+    private static $camel_cache = [];
+    private static $studly_cache = [];
     
     public static function snake($value) 
     {
@@ -19,4 +20,16 @@ class Str
         }
         return $value;
     }
+    
+    public static function studly($value) 
+    {
+        if (isset(static::$studly_cache[$value])) {
+            return static::$studly_cache[$value];
+        }
+        $studly = ucwords(preg_replace('/[^a-zA-Z0-9]+/', ' ', $value));
+        return static::$studly_cache[$value] = str_replace(' ', '', $studly);
+    }
+    
+    
+    
 }

@@ -99,7 +99,9 @@ class Directory
     public function createChildDirectory($dirname) 
     {
         $path = $this->getChild($dirname);
-        $path->create();
+        if(!$path->exists()) {
+            $path->create();
+        }
         return $path;
     }
     

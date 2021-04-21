@@ -33,10 +33,6 @@ class ModuleHelper
             throw new InvalidArgumentException('The module name needs to be in format AuthorName_ModuleName instead "'.$name.'" was provided.');
         }
         
-        if($this->module_list->has($name)) {
-            throw new InvalidArgumentException('The module '. $name .' already exists. Please use another module name.');
-        }
-        
         return true;
     }
 }
