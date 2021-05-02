@@ -21,6 +21,11 @@ class Str
         return $value;
     }
     
+    public static function dashing($input)
+    {
+        return str_replace('_','-',self::snake($input));
+    }
+    
     public static function studly($value) 
     {
         if (isset(static::$studly_cache[$value])) {

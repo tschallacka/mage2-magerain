@@ -8,7 +8,7 @@ class Xml
      * @param \DOMDocument $input
      * @return \DOMDocument prettified dom document
      */
-    public function prettify(\DOMDocument $input) 
+    public static function prettify(\DOMDocument $input) 
     {
         $fresh_dom = new \DOMDocument();
         $fresh_dom->preserveWhiteSpace = false;
